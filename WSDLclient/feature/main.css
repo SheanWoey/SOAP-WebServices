@@ -1,0 +1,90 @@
+.infocard-list-pkmn-sm {
+    grid-gap: .75rem;
+    grid-template-columns: repeat(auto-fill, minmax(82px, 1fr));
+}
+.infocard-list {
+    display: grid;
+    grid-gap: 2rem .75rem;
+}
+
+.infocard-list {
+    margin-bottom: 1rem;
+}
+
+.infocard-list>.infocard {
+    width: auto;
+    padding: 0;
+}
+.infocard-list-pkmn-sm>.infocard {
+    width: 90px;
+    color: #737373;
+    font-size: .75rem;
+}
+.infocard {
+    display: inline-block;
+    padding: 0 .75rem 2rem;
+    line-height: 1.25;
+    text-align: center;
+}
+a {
+    color: #2769be;
+    text-decoration: none;
+    transition: color .2s, background-color .2s;
+}
+
+.icon-pkmn {
+    width: 40px;
+    height: 30px;
+}
+
+.img-fixed {
+    display: inline-block;
+    max-width: none;
+    vertical-align: middle;
+}
+
+.list-nav {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 0;
+    text-align: center;
+}
+
+.panel-palecyan, .panel-nav {
+    background-color: #e3f5fd;
+}
+.panel {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 4px;
+}
+.list-nav>li {
+    padding: 0 1rem;
+}
+.list-nav>li:not(.list-nav-title):not(:last-child) {
+    border-right: 1px solid #dbdbdb;
+}
+body{
+    background: url(../image/bg.jpg) no-repeat center center fixed; 
+}
+.container {
+    background-color: white;
+}
+
+
+#pokemon_detail_con {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 100;
+    background-color: black;
+}
+
+.container {
+    padding: 10px;
+    border-radius: 10px;
+    margin: 2%;
+}

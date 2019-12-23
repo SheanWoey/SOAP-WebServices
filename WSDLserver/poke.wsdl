@@ -1,0 +1,101 @@
+<?xml version ='1.0' encoding ='UTF-8' ?> 
+<definitions name='Results' 
+             targetNamespace='http://localhost/WSDLserver' 
+             xmlns:tns='http://localhost/WSDLserver' 
+             xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' 
+             xmlns:xsd='http://www.w3.org/2001/XMLSchema' 
+             xmlns:soapenc='http://schemas.xmlsoap.org/soap/encoding/'
+             xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' 
+             xmlns='http://schemas.xmlsoap.org/wsdl/'> 
+       
+
+    <message name='getAllPokemonRequest'> 
+        <part name='teamId' type='xsd:string'/> 
+    </message>  
+    <message name='getAllPokemonResponse'> 
+        <part name='results' type='xsd:array'/> 
+    </message> 
+    <message name='getPokemonDetailRequest'> 
+        <part name='teamId' type='xsd:int'/> 
+    </message>  
+    <message name='getPokemonDetailResponse'> 
+        <part name='results' type='xsd:array'/> 
+    </message> 
+    
+    <message name='getPokemonByTypeLegendRequest1'> 
+        <part name='type' type='xsd:string'/> 
+        <part name='legend' type='xsd:string'/> 
+    </message>   
+    <message name='getPokemonByTypeLegendResponse'> 
+        <part name='results' type='xsd:array'/> 
+    </message> 
+
+    <portType name='ResultsPortType'> 
+
+        
+        <operation name='getAllPokemon'> 
+            <input message='tns:getAllPokemonRequest'/> 
+            <output message='tns:getAllPokemonResponse'/> 
+        </operation> 
+        <operation name='getPokemonDetail'> 
+            <input message='tns:getPokemonDetailRequest'/> 
+            <output message='tns:getPokemonDetailResponse'/> 
+        </operation> 
+        <operation name='getPokemonByTypeLegend'> 
+            <input message='tns:getPokemonByTypeLegendRequest1'/> 
+            <output message='tns:getPokemonByTypeLegendResponse'/> 
+        </operation> 
+    </portType> 
+
+    <binding name='ResultsBinding' type='tns:ResultsPortType'> 
+        <soap:binding style='rpc' 
+                      transport='http://schemas.xmlsoap.org/soap/http'
+        /> 
+        
+        <operation name='getAllPokemon'> 
+            <soap:operation soapAction='urn:localhost-Results#getAllPokemon'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-Results' 
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-Results' 
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation> 
+        
+        <operation name='getPokemonDetail'> 
+            <soap:operation soapAction='urn:localhost-Results#getPokemonDetail'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-Results' 
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-Results' 
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation> 
+        
+        <operation name='getPokemonByTypeLegend'> 
+            <soap:operation soapAction='urn:localhost-Results#getPokemonByTypeLegend'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-Results' 
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-Results' 
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-Results' 
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation> 
+    </binding> 
+
+    <service name='ResultsService'> 
+        <port name='ResultsPort' binding='ResultsBinding'> 
+            <soap:address location='http://localhost/WSDLserver/server.php'/> 
+        </port> 
+    </service>
+</definitions>
